@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply to CodeForge Academy - Application Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles specific to the application page */
+        .apply-hero {
+            background: linear-gradient(135deg, var(--primary-electric), var(--primary-purple));
+            padding: var(--space-2xl) 0;
+            text-align: center;
+            margin-top: 80px; /* Account for fixed nav */
+        }
+        
+        .apply-hero h1 {
+            color: var(--neutral-white);
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .apply-hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        .application-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: var(--space-lg);
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--neutral-white);
+            display: block;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: var(--space-xs);
+        }
+        
+        .application-content {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .back-to-home {
+            position: fixed;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            background: rgba(45, 52, 54, 0.9);
+            border: 1px solid var(--primary-electric);
+            padding: var(--space-sm);
+            border-radius: 50px;
+            color: var(--primary-electric);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .back-to-home:hover {
+            background: var(--primary-electric);
+            color: var(--neutral-black);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        /* Enhanced form styling for standalone page */
+        .enhanced-form {
+            background: rgba(45, 52, 54, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--primary-electric);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+        }
+        
+        .form-step.active {
+            animation: slideInUp 0.5s ease;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Success celebration styles */
+        .celebration-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .celebration-bg.active {
+            background: radial-gradient(circle at center, rgba(0, 212, 255, 0.1), transparent);
+            animation: celebrationPulse 2s ease-in-out;
+        }
+        
+        @keyframes celebrationPulse {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="celebration-bg" id="celebrationBg"></div>
+    
+    <!-- Back to Home Link -->
+    <a href="index.html" class="back-to-home" title="Back to Homepage">
+        ←
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">CodeForge</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#community">Community</a></li>
+            </ul>
+            <a href="#apply" class="cta-button">Apply Now</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="apply-hero">
+        <div class="container">
+            <h1>Join CodeForge Academy</h1>
+            <p>Take the next step in your coding journey. Our comprehensive application helps us understand your background, goals, and aspirations to provide the best learning experience.</p>
+            
+            <div class="application-stats">
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Job Placement Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$75K</span>
+                    <span class="stat-label">Average Starting Salary</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Successful Graduates</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Week Program</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Application Section -->
+    <section class="application-content" id="apply">
+        <div class="container">
+            <div class="application-container">
+                <div class="application-info">
+                    <div class="info-card">
+                        <h3>🎯 What You'll Get</h3>
+                        <ul>
+                            <li>12-week intensive bootcamp with expert instructors</li>
+                            <li>Weekly 1-on-1 mentorship sessions with industry professionals</li>
+                            <li>Real-world project portfolio that showcases your skills</li>
+                            <li>Comprehensive job placement assistance and career coaching</li>
+                            <li>Lifetime access to our alumni community and resources</li>
+                            <li>Industry networking events and guest speaker sessions</li>
+                            <li>Modern development tools and software licenses</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>💰 Investment Options</h3>
+                        <div class="pricing">
+                            <div class="price">$12,000</div>
+                            <div class="payment-options">
+                                <span>💳 <strong>Pay Upfront:</strong> $10,800 (10% discount + no interest)</span>
+                                <span>📅 <strong>Monthly Plan:</strong> $1,200 x 12 months (0% APR)</span>
+                                <span>🎓 <strong>Income Share Agreement:</strong> Pay 15% of salary for 24 months after you're hired (minimum $50K salary)</span>
+                                <span>🏦 <strong>Employer Sponsorship:</strong> Many companies sponsor their employees</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; color: var(--neutral-gray); margin-top: var(--space-md);">
+                            <strong>Money-Back Guarantee:</strong> If you don't get a job offer within 6 months of graduation, we'll refund your tuition.
+                        </p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>📅 Upcoming Cohorts</h3>
+                        <div class="cohort-dates">
+                            <div class="cohort-date">
+                                <strong>September 15, 2025 - Full Stack Web Development</strong>
+                                <span>Applications close: August 30, 2025</span>
+                                <span style="color: var(--accent-success); font-size: 0.8rem;">✅ 5 spots remaining</span>
+                            </div>
+                            <div class="cohort-date">
+                                <strong>November 3, 2025 - Full Stack Web Development</strong>
+                                <span>Applications close: October 20, 2025</span>
+                                <span style="color: var(--primary-cyan); font-size: 0.8rem;">🔥 Early bird pricing available</span>
+                            </div>
+                            <div class="cohort-date">
+                                <strong>January 12, 2026 - Data Science & AI</strong>
+                                <span>Applications close: December 28, 2025</span>
+                                <span style="color: var(--accent-warning); font-size: 0.8rem;">🆕 New program launch</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>🤔 Frequently Asked Questions</h3>
+                        <div style="font-size: 0.9rem; color: var(--neutral-gray); line-height: 1.6;">
+                            <p><strong>Q: Do I need prior coding experience?</strong><br>
+                            A: No! We welcome complete beginners. Our curriculum starts with fundamentals.</p>
+                            
+                            <p><strong>Q: What's the time commitment?</strong><br>
+                            A: Full-time: 40+ hours/week. Part-time options: 20-30 hours/week over 24 weeks.</p>
+                            
+                            <p><strong>Q: What technologies will I learn?</strong><br>
+                            A: JavaScript, React, Node.js, Python, SQL, Git, AWS, and more based on your track.</p>
+                            
+                            <p><strong>Q: Is there an age limit?</strong><br>
+                            A: No age limit! Our students range from 18 to 65+.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="application-form enhanced-form" id="applicationForm">
+                    <div class="form-header">
+                        <h3>🚀 Application Form</h3>
+                        <p>This application takes about 10-15 minutes to complete. We'll review it within 2-3 business days.</p>
+                        <div style="margin-top: var(--space-md); padding: var(--space-md); background: rgba(0, 212, 255, 0.1); border-radius: 10px; font-size: 0.9rem; color: var(--primary-cyan);">
+                            💡 <strong>Tip:</strong> Your progress is automatically saved every 30 seconds, so you won't lose your work!
+                        </div>
+                    </div>
+                    
+                    <div class="form-step active" data-step="1">
+                        <h4>👤 Personal Information</h4>
+                        <p style="color: var(--neutral-gray); margin-bottom: var(--space-lg); font-size: 0.9rem;">
+                            Help us get to know you better. All information is kept confidential and secure.
+                        </p>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" name="age" min="16" max="65" placeholder="25">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Location (City, Country) *</label>
+                                <input type="text" id="location" name="location" required placeholder="San Francisco, USA">
+                            </div>
+                        </div>
+                        
+                        <button type="button" class="next-step-btn" onclick="nextStep(2)">
+                            Continue to Background →
+                        </button>
+                    </div>
+                    
+                    <div class="form-step" data-step="2">
+                        <h4>🎓 Background & Experience</h4>
+                        <p style="color: var(--neutral-gray); margin-bottom: var(--space-lg); font-size: 0.9rem;">
+                            Tell us about your educational and professional background. This helps us tailor the program to your needs.
+                        </p>
+                        
+                        <div class="form-group">
+                            <label for="education">Highest Education Level *</label>
+                            <select id="education" name="education" required>
+                                <option value="">Select your education level</option>
+                                <option value="high-school">High School Diploma/GED</option>
+                                <option value="some-college">Some College (No degree)</option>
+                                <option value="associates">Associate's Degree</option>
+                                <option value="bachelors">Bachelor's Degree</option>
+                                <option value="masters">Master's Degree</option>
+                                <option value="phd">PhD/Doctorate</option>
+                                <option value="trade">Trade School/Certificate</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="currentRole">Current Role/Occupation *</label>
+                            <input type="text" id="currentRole" name="currentRole" required placeholder="e.g., Marketing Manager, Student, Retail Associate">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="workExperience">Years of Professional Experience</label>
+                            <select id="workExperience" name="workExperience">
+                                <option value="">Select experience level</option>
+                                <option value="0">No professional experience</option>
+                                <option value="1-2">1-2 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="programmingExperience">Programming Experience *</label>
+                            <select id="programmingExperience" name="programmingExperience" required>
+                                <option value="">Select your programming experience</option>
+                                <option value="none">Complete beginner (no experience)</option>
+                                <option value="beginner">Beginner (completed some tutorials/online courses)</option>
+                                <option value="intermediate">Intermediate (built personal projects)</option>
+                                <option value="advanced">Advanced (professional experience or computer science degree)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="languages">Programming Languages/Technologies You Know</label>
+                            <input type="text" id="languages" name="languages" placeholder="e.g., HTML, CSS, JavaScript, Python (leave blank if none)">
+                            <small style="color: var(--neutral-gray); font-size: 0.8rem;">Separate multiple languages with commas</small>
+                        </div>
+                        
+                        <div class="form-navigation">
+                            <button type="button" class="prev-step-btn" onclick="prevStep(1)">
+                                ← Back to Personal Info
+                            </button>
+                            <button type="button" class="next-step-btn" onclick="nextStep(3)">
+                                Continue to Goals →
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" data-step="3">
+                        <h4>🎯 Goals & Motivation</h4>
+                        <p style="color: var(--neutral-gray); margin-bottom: var(--space-lg); font-size: 0.9rem;">
+                            Help us understand your aspirations and how CodeForge fits into your career journey.
+                        </p>
+                        
+                        <div class="form-group">
+                            <label for="careerGoals">What are your career goals after completing the bootcamp? *</label>
+                            <textarea id="careerGoals" name="careerGoals" required rows="4" 
+                                placeholder="e.g., Become a full-stack developer at a tech startup, transition from marketing to product development, start my own SaaS company, freelance as a web developer..."></textarea>
+                            <small style="color: var(--neutral-gray); font-size: 0.8rem;">Be as specific as possible - this helps us tailor your learning experience</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="motivation">Why do you want to learn programming and why CodeForge? *</label>
+                            <textarea id="motivation" name="motivation" required rows="4" 
+                                placeholder="Tell us what sparked your interest in coding, what drew you to CodeForge specifically, and what you hope to achieve..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="challenges">What do you think will be your biggest challenge in learning to code?</label>
+                            <textarea id="challenges" name="challenges" rows="3" 
+                                placeholder="e.g., Time management, mathematical concepts, imposter syndrome, staying motivated..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timeCommitment">Preferred Learning Schedule *</label>
+                            <select id="timeCommitment" name="timeCommitment" required>
+                                <option value="">Select your preferred schedule</option>
+                                <option value="full-time">Full-time Immersive (40+ hours/week, 12 weeks)</option>
+                                <option value="part-time-evening">Part-time Evening (20-25 hours/week, 24 weeks)</option>
+                                <option value="part-time-weekend">Part-time Weekend (15-20 hours/week, 28 weeks)</option>
+                                <option value="self-paced">Self-paced Online (flexible timeline)</option>
+                            </select>
